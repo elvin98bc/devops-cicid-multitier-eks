@@ -93,7 +93,7 @@ pipeline {
             }
         }
 
-        stage('K* Verify the Deployment') {
+        stage('K8 Verify the Deployment') {
             steps {
                 withKubeConfig(caCertificate: '', clusterName: 'devops-cluster', contextName: '', credentialsId: 'k8s-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://312B546CCCDAB80B482D733191652627.gr7.ap-southeast-1.eks.amazonaws.com') {
                     sh 'kubectl get pods'
