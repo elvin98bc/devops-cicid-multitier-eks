@@ -34,6 +34,9 @@ sudo systemctl status docker
 sudo systemctl start docker
 sudo chmod 666 /var/run/docker.sock
 
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+
 #Installing kubectl if jenkins deploy eks deplyment
 
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"

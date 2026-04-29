@@ -51,7 +51,7 @@ pipeline {
         
         stage('Public Artifact') {
             steps {
-                withMaven(globalMavenSettingsConfig: 'settings-maven', jdk: '', maven: 'maven3', traceability: true) {
+                withMaven(globalMavenSettingsConfig: 'settings-maven', maven: 'maven3', traceability: true) {
                     sh "mvn deploy -DskipTests=true"
                 }
             }
