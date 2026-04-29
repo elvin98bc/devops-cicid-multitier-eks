@@ -34,10 +34,10 @@ build/
 
 # Terraform
 **/.terraform/*
-*.tfstate
-*.tfstate.*
-*.tfvars
-.terraform.lock.hcl
+Terraform/*.tfstate
+Terraform/tfstate.*
+Terraform/*.tfvars
+Terraform/.terraform.lock.hcl
 
 # Ignore PEM key files
 Terraform/elvin-poc-keypair.pem
