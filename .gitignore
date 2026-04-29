@@ -32,5 +32,12 @@ build/
 ### VS Code ###
 .vscode/
 
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform.lock.hcl
+
 # Ignore PEM key files
 Terraform/elvin-poc-keypair.pem
