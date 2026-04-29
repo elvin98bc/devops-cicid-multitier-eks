@@ -83,24 +83,24 @@ pipeline {
             }
         }
         
-        // stage('K8-Deploy') {
-        //     steps {
-        //         withKubeConfig(caCertificate: '', clusterName: 'devopsshack-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://6B55FBA9D61057F2830050F0A69B9327.sk1.ap-southeast-1.eks.amazonaws.com') {
-        //             sh 'pwd && ls -la'
-        //             sh 'kubectl apply -f deployment-service.yml'
-        //             sleep 20
-        //         }
-        //     }
-        // }
+        stage('K8-Deploy') {
+            steps {
+                withKubeConfig(caCertificate: '', clusterName: 'devops-cluster', contextName: '', credentialsId: 'k8s-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://312B546CCCDAB80B482D733191652627.gr7.ap-southeast-1.eks.amazonaws.com') {
+                    sh 'pwd && ls -la'
+                    sh 'kubectl apply -f k8s-yaml/deployment-service.yml'
+                    sleep 20
+                }
+            }
+        }
 
-        // stage('K* Verify the Deployment') {
-        //     steps {
-        //         withKubeConfig(caCertificate: '', clusterName: 'devopsshack-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://6B55FBA9D61057F2830050F0A69B9327.sk1.ap-southeast-1.eks.amazonaws.com') {
-        //             sh 'kubectl  get pods'
-        //             sh 'kubectl  get svc'
-        //         }
-        //     }
-        // }
+        stage('K* Verify the Deployment') {
+            steps {
+                withKubeConfig(caCertificate: '', clusterName: 'devops-cluster', contextName: '', credentialsId: 'k8s-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://312B546CCCDAB80B482D733191652627.gr7.ap-southeast-1.eks.amazonaws.com') {
+                    sh 'kubectl get pods'
+                    sh 'kubectl get svc'
+                }
+            }
+        }
         
     }
     
